@@ -1296,17 +1296,70 @@
 //}
 
 
+//#include <stdio.h>
+//int isprime(int n) {
+//	if (n < 2) return 0;
+//	for (int i = 2; i < n; i++) {
+//		if (n % i == 0) return 0;
+//	}
+//	return 1;
+//}
+//int main() {
+//	int a;
+//	scanf("%d", &a);
+//	printf("%d\n", isprime(a));
+//	return 0;
+//}
+
+
+
+
+//#include <stdio.h>
+//int findmax(int arr[], int n) {
+//	int max = arr[0];
+//	for (int i = 0; i < n; i++) {
+//		if (arr[i] > max) max = arr[i];
+//	}
+//	return max;
+//}
+//int main() {
+//	int n;
+//	scanf("%d", &n);
+//	int arr[105];
+//	for (int i = 0; i < n; i++) {
+//		scanf("%d", &arr[i]);
+//	}
+//	printf("%d\n", findmax(arr, n));
+//	return 0;
+//}
+
+
+
+
+
 #include <stdio.h>
-int isprime(int n) {
-	if (n < 2) return 0;
-	for (int i = 2; i < n; i++) {
-		if (n % i == 0) return 0;
+
+int main(void) {
+	/* ÔÚ´Ë±àĞ´ Day 9£ºÃ°ÅİÅÅĞò */
+	int n;
+	scanf("%d", &n);
+	int arr[105] = { 0 };
+	for (int i = 0; i < n; i++) {
+		scanf("%d", &arr[i]);
 	}
-	return 1;
-}
-int main() {
-	int a;
-	scanf("%d", &a);
-	printf("%d\n", isprime(a));
+	for (int i = 0; i < n - 1; i++) {//Ã°ÅİÅÅĞòºËĞÄ
+		for (int j = 0; j < n - i - 1; j++) {
+			if (arr[j] > arr[j + 1]) {
+				int t = arr[j];
+				arr[j] = arr[j + 1];
+				arr[j + 1] = t;
+			}
+		}
+	}
+	for (int i = 0; i < n; i++) {
+		if (i > 0) printf(" ");
+		printf("%d", arr[i]);
+	}
+	printf("\n");
 	return 0;
 }

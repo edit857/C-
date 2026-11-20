@@ -56,19 +56,41 @@
 
 
 
+//#include <stdio.h>
+//int maxofthree(int a, int b, int c) {//第一个函数实现最大值
+//	int max = a;
+//	if (b > max) max = b;
+//	if (c > max) max = c;
+//	return max;
+//}
+//double avgofthree(int a, int b, int c) {
+//	return (a + b + c) / 3.0;
+//}
+//int main(void) {
+//	int x, y, z;
+//	scanf("%d %d %d", &x, &y, &z);
+//	printf("%d\n%.2lf", maxofthree(x, y, z), avgofthree(x, y, z));
+//	return 0;
+//}
+
+
+
+
 #include <stdio.h>
-int maxofthree(int a, int b, int c) {//第一个函数实现最大值
-	int max = a;
-	if (b > max) max = b;
-	if (c > max) max = c;
+int findmax(int arr[], int n) {
+	int max = arr[0];
+	for (int i = 0; i < n; i ++ ) {
+		if (arr[i] > max) max = arr[i];
+	}
 	return max;
 }
-double avgofthree(int a, int b, int c) {
-	return (a + b + c) / 3.0;
-}
-int main(void) {
-	int x, y, z;
-	scanf("%d %d %d", &x, &y, &z);
-	printf("%d\n%.2lf", maxofthree(x, y, z), avgofthree(x, y, z));
+int main() {
+	int n;
+	scanf("%d", &n);
+	int arr[105];
+	for (int i = 0; i < n; i++) {
+		scanf("%d", &arr[i]);
+	}
+	printf("%d\n", findmax(arr, n));
 	return 0;
 }

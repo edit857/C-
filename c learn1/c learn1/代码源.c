@@ -78,18 +78,50 @@
 
 
 
+//#include <stdio.h>
+//int isprime(int n) {
+//	if (n < 2) return 0;
+//	for (int i = 2; i < n; i++) {
+//		if (n % i == 0) return 0;
+//	}
+//	return 1;
+//}
+//int main() {
+//	int n;
+//	scanf("%d", &n);
+//	if (isprime(n)) printf("YES\n");
+//	else printf("NO\n");
+//	return 0;
+//}
+
+
+
+
+
+
 #include <stdio.h>
-int isprime(int n) {
-	if (n < 2) return 0;
-	for (int i = 2; i < n; i++) {
-		if (n % i == 0) return 0;
-	}
-	return 1;
-}
-int main() {
+
+int main(void) {
+	/* 在此编写 Day 9：冒泡排序 */
 	int n;
 	scanf("%d", &n);
-	if (isprime(n)) printf("YES\n");
-	else printf("NO\n");
+	int arr[105] = { 0 };
+	for (int i = 0; i < n; i++) {
+		scanf("%d", &arr[i]);
+	}
+	for (int i = 0; i < n - 1; i++) {//冒泡排序核心
+		for (int j = 0; j < n - i - 1; j++) {
+			if (arr[j] > arr[j + 1]) {
+				int t = arr[j];
+				arr[j] = arr[j + 1];
+				arr[j + 1] = t;
+			}
+		}
+	}
+	for (int i = 0; i < n; i++) {
+		if (i > 0) printf(" ");
+		printf("%d", arr[i]);
+	}
+	printf("\n");
 	return 0;
 }
